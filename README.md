@@ -25,6 +25,11 @@ This endpoint allows you to search for the topic.
 ## Technology Used
 This Project is Created using Python and Flask.
 
+## Libraries Used
+* Spacy
+* flask
+* wikipedia
+
 ## How to Run
 pip install requirements.txt<br>
 python app.py (Python Version used is 3.8.5)
