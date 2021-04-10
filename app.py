@@ -5,11 +5,11 @@ import random
 import os
 from flask import Flask, redirect, url_for, render_template, request 
 
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('en_core_web_sm') #loading trained english pipeline
 
-app = Flask(__name__)
+app = Flask(__name__) #intializing an app
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST']) #defining the function of hompage according to request
 def searchBar():
     if request.method == "POST" :
         query = request.form["query"]
@@ -18,7 +18,7 @@ def searchBar():
         return render_template("index.html")
 
 @app.route("/<query>")
-def searchResult(query):
+def searchResult(query): #searching for the topic entered by user using wikipedia API and and performing NER
     try:
         content = wikipedia.page(str(query)).content
     except wikipedia.DisambiguationError as e:
